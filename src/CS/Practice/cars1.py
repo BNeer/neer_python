@@ -13,11 +13,16 @@ class CarModels:
         print(f"Horse Power is : {self.HorsePower}")
         print(f"color is : {self.color}")
 
-CarModel1 = CarModels("Benz", "Hatchback",1600,"Navy Blue")
-CarModel2 = CarModels("BMW","SUV",1800,"Green")
+
+if __name__ == '__main__':
+    CarModel1 = CarModels()
+    CarModel1.main("Benz", "Hatchback",1600,"Navy Blue")
+
+    CarModel2 = CarModels()
+    CarModel2.main("BMW","SUV",1800,"Green")
+
+    CarModel1.description()
+    CarModel2.description()
 
 CarModel1.description()
 CarModel2.description()
-
-#print(list1,list2)
-#print(CarModel1)

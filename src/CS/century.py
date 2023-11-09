@@ -11,7 +11,7 @@ result = century(year)  # Call the function and store the result in 'result'
 print(f"For year {year}, the century is {result}")
 
 
-centurt(1207)
+century(1207)
 
 
 
