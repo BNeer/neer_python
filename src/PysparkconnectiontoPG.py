@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 #import urllib
 #import urllib.parse
-import re
+#import re
 
 
 #jar_path = 'C:\\postgresql-42.6.0.jar'
@@ -40,22 +40,22 @@ spark = SparkSession.builder \
 dburl="jdbc:postgresql://ec2-3-9-191-104.eu-west-2.compute.amazonaws.com:5432/testdb"
 
 
+# The value of postgres_query will be passed to argument .option of line 46 below
+postgres_query = "(select * from b1) AS B1"
 
 df = spark.read.format("jdbc").option("url",dburl) \
     .option("driver", "org.postgresql.Driver").option("dbtable", postgres_query) \
     .option("user", "consultants").option("password", "WelcomeItc@2022").load()
 
 
-# df = spark.read \
-#     .format("jdbc") \
-#     .option("url", "jdbc:postgresql://ec2-3-9-191-104.eu-west-2.compute.amazonaws.com:5432/testdb") \
-#     .option("dbtable", "testdb") \
-#     .option("user", "consultants") \
-#     .option("password", "WelcomeItc@2022") \
-#     .option("driver", "org.postgresql.Driver") \
-#     .load()
+#df = spark.read \
+#    .format("jdbc") \
+#    .option("url", "jdbc:postgresql://ec2-3-9-191-104.eu-west-2.compute.amazonaws.com:5432/testdb") \
+#    .option("dbtable", "testdb") \
+#    .option("user", "consultants") \
+#    .option("password", "WelcomeItc@2022") \
+#    .option("driver", "org.postgresql.Driver") \
+#    .load()
 
-
-postgres_query = "(select * from b1) AS b1"
 
 df.show()
